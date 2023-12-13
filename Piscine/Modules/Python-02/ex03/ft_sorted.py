@@ -1,29 +1,34 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_max_val.py                                          :+:      :+:    :+:    #
+#    ft_sorted.py                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/12 15:10:02 by dcologgi          #+#    #+#              #
-#    Updated: 2023/12/12 15:19:40 by dcologgi         ###   ########.fr        #
+#    Created: 2023/12/13 15:20:09 by dcologgi          #+#    #+#              #
+#    Updated: 2023/12/13 16:12:08 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 import sys
 
 try:
-    if (len(sys.argv) != 4):
-        raise Exception("Error! Usage: python3 ft_max.py <x> <y> <z>")
-    n1 = float(sys.argv[1])
-    n2 = float(sys.argv[2])
-    n3 = float(sys.argv[3])
-    max_val = n1
-    if (n2 > max_val):
-        max_val = n2
-    if (n3 > max_val):
-        max_val = n3
-    print(f"The max is: {max_val}")
+	if (len(sys.argv) < 3):
+		raise Exception("Error! You must insert at least 2 numbers")
+	stack = []
+	for i in sys.argv[1:]:
+		stack.append(int(i))
+	n = stack[0]
+	flag = 0
+	for j in stack:
+		if (j > n):
+			flag = 1
+		n = j
+	if (flag == 0):
+		raise Exception("The inserted sequence is sorted!")
+	else:
+		stack.sort(reverse = True)
+		print(f"The inserted sequence is not sorted!\nThe correct order is {stack}")
 
 except Exception as err:
-    print(err)
+	print(err)

@@ -1,29 +1,33 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_max_val.py                                          :+:      :+:    :+:    #
+#    ft_char_count.py                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/12 15:10:02 by dcologgi          #+#    #+#              #
-#    Updated: 2023/12/12 15:19:40 by dcologgi         ###   ########.fr        #
+#    Created: 2023/12/13 16:50:45 by dcologgi          #+#    #+#              #
+#    Updated: 2023/12/13 17:16:57 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 import sys
 
 try:
-    if (len(sys.argv) != 4):
-        raise Exception("Error! Usage: python3 ft_max.py <x> <y> <z>")
-    n1 = float(sys.argv[1])
-    n2 = float(sys.argv[2])
-    n3 = float(sys.argv[3])
-    max_val = n1
-    if (n2 > max_val):
-        max_val = n2
-    if (n3 > max_val):
-        max_val = n3
-    print(f"The max is: {max_val}")
+	if (len(sys.argv) < 2):
+		raise Exception("Error! No string given")
+	elif (len(sys.argv) > 2):
+		raise Exception("Error! Insert only 1 string")
+	phrase = sys.argv[1]
+	dictionary = dict()
+	for c in phrase:
+		if c in dictionary:
+			dictionary[c] += 1
+		else:
+			dictionary[c] = 1
+	print(f"Char count:")
+	ord_dictionary = dict(sorted(dictionary.items()))
+	for key, value in ord_dictionary.items():
+		print(f"{key} = {value}")
 
 except Exception as err:
-    print(err)
+	print(err)
