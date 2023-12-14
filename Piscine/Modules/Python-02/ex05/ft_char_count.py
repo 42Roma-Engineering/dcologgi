@@ -6,7 +6,7 @@
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 16:50:45 by dcologgi          #+#    #+#              #
-#    Updated: 2023/12/13 17:16:57 by dcologgi         ###   ########.fr        #
+#    Updated: 2023/12/14 16:16:16 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ try:
 			dictionary[c] += 1
 		else:
 			dictionary[c] = 1
-	print(f"Char count:")
+	print("Char count:")
 	ord_dictionary = dict(sorted(dictionary.items()))
 	for key, value in ord_dictionary.items():
 		print(f"{key} = {value}")
